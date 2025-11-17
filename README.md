@@ -42,64 +42,6 @@ super-store-eda/
 
 **Notes:** Place the raw CSV in `data/`. If dataset is large or proprietary, include a small sample CSV and provide download instructions in `data/README.md`.
 
----
-
-## ⚙️ How to run (Local)
-
-1. Clone the repository
-
-```bash
-git clone https://github.com/<your-username>/super-store-eda.git
-cd super-store-eda
-```
-
-2. Create virtual environment & install dependencies
-
-```bash
-python -m venv venv
-# Windows
-venv\Scripts\activate
-# macOS / Linux
-source venv/bin/activate
-pip install -r requirements.txt
-```
-
-3. Put `sample_superstore.csv` into `data/` or update `src/data_processing.py` to point to the dataset path.
-4. Run Jupyter notebooks for the EDA (optional)
-
-```bash
-jupyter lab notebooks/01_data_exploration.ipynb
-```
-
-5. Run Streamlit dashboard
-
-```bash
-streamlit run src/streamlit_app.py
-```
-
----
-
-## 🧩 Tech stack & dependencies
-
-* Python 3.8+
-* pandas, numpy
-* matplotlib, plotly.express
-* streamlit
-* seaborn (optional for static plots in notebooks)
-* scikit-learn (optional for feature transformations or basic models)
-
-A minimal `requirements.txt` (examples):
-
-```
-pandas
-numpy
-streamlit
-plotly
-matplotlib
-seaborn
-scikit-learn
-openpyxl
-```
 
 ---
 
@@ -210,4 +152,60 @@ The Streamlit dashboard mirrors the screenshots and includes the following secti
 >
 > Between 2014 and 2017, total sales were **$2.29M** with a total profit of **$286k** (as shown in KPI header). Technology drove the largest share of revenue, and the West region contributed the most sales. The Consumer segment is the primary buyer. Strong seasonal spikes appear at year-end, indicating promotional periods or shopping seasons.
 >
+---
+## ⚙️ How to run (Local)
 
+1. Clone the repository
+
+```bash
+git clone https://github.com/<your-username>/super-store-eda.git
+cd super-store-eda
+```
+
+2. Create virtual environment & install dependencies
+
+```bash
+python -m venv venv
+# Windows
+venv\Scripts\activate
+# macOS / Linux
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+3. Put `sample_superstore.csv` into `data/` or update `src/data_processing.py` to point to the dataset path.
+4. Run Jupyter notebooks for the EDA (optional)
+
+```bash
+jupyter lab notebooks/01_data_exploration.ipynb
+```
+
+5. Run Streamlit dashboard
+
+```bash
+streamlit run src/streamlit_app.py
+```
+
+---
+
+## 🧩 Tech stack & dependencies
+
+* Python 3.8+
+* pandas, numpy
+* matplotlib, plotly.express
+* streamlit
+* seaborn (optional for static plots in notebooks)
+* scikit-learn (optional for feature transformations or basic models)
+
+A minimal `requirements.txt` (examples):
+
+```
+pandas
+numpy
+streamlit
+plotly
+matplotlib
+seaborn
+scikit-learn
+openpyxl
+```
