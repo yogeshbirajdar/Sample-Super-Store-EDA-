@@ -11,8 +11,6 @@ st.set_page_config(page_title="Super Store....!", page_icon=":bar_chart", layout
 
 st.title(" :bar_chart: Sample Super Store EDA")
 
-# st.markdown('<style>div.block-container{padding-top:3rem;}</style>',unsafe_allow_html=True)
-
 st.markdown("""
 <style>
 .sidebar .sidebar-content {
@@ -34,8 +32,7 @@ if fl is not None:
     st.write(filename)
     df = pd.read_csv(filename)
 else:
-    # os.chdir(r"C:\Users\nages\OneDrive\Desktop\Python Basic")
-    df = pd.read_excel(r"C:\Users\nages\OneDrive\Desktop\Python Basic\Sample_Superstore.xls")
+    df = pd.read_excel("Sample_Superstore.xls")
 
 
 col1, col2 = st.columns((2))
@@ -139,7 +136,6 @@ with column1:
     st.subheader("Category wise Sales")
     fig = px.bar(category_df, x = "Category", y = "Sales", text = ['${:.2f}'.format(x) for x in category_df["Sales"]],
                   template="seaborn")
-    # st.plotly_chart(fig,use_container_width=True, config={"displayModebar": False, "scrollzoom": True, "responsive": True}, height = 200)
     st.plotly_chart(fig)
 
 
@@ -150,7 +146,6 @@ with column2:
     st.subheader("Region wise Sales")
     fig = px.pie(filtered_df, values= "Sales", names = "Region", hole = 0.5)
     fig.update_traces(text = filtered_df["Region"], textposition = "outside")
-    # st.plotly_chart(fig,use_container_width=True, config={"displayModebar": False, "scrollzoom": True, "responsive": True})
     st.plotly_chart(fig)
 
 
@@ -269,14 +264,11 @@ with st.expander("Summery Table"):
 # SCATTER PLOT
 st.subheader("Relationship Between Sales and Profit using Scatter Plot")
 data1 = px.scatter(filtered_df, x = "Sales", y = "Profit", size= "Quantity")
-data1.update_layout(
-    # title={"text": "Relationship Between Sales and Profit using Scatter Plot",
-    #        "font": {"size": 25, "color": "white"},
-    #         }
-)
+data1.update_layout()
 st.plotly_chart(data1)
 
 # Download original DataSet
 
 csv = df.to_csv(index = False).encode('utf-8')
 st.download_button('Download Data', data = csv, file_name= "Data.csv", mime= "text/csv")
+
