@@ -154,14 +154,14 @@ with column2:
 cl1, cl2 = st.columns((2))
 
 with cl1:
-    with st.expander("Category_View_Data"):
+    with st.expander("Category_wise_Sales"):
         st.write(category_df.style.background_gradient(cmap="Blues"))
         csv = category_df.to_csv(index= False).encode('utf-8')
         st.download_button("Download Data", data= csv, file_name = "Category.csv", mime = "text/csv",
                            help = "Click Here to Download The Data as a CSV File")
         
 with cl2:
-    with st.expander("Region_View_Data"):
+    with st.expander("Region_wise_Sales"):
         region = filtered_df.groupby(by= "Region", as_index= False)["Sales"].sum()
         st.write(region.style.background_gradient(cmap="Oranges"))
         csv = region.to_csv(index= False).encode('utf-8')
@@ -181,7 +181,7 @@ st.plotly_chart(fig2)
 
 # For Download Data of Line Chatr
 
-with st.expander("View Data of TimeSeries:"):
+with st.expander("Monthly Sales by TimeSeries:"):
     st.write(linechart.style.background_gradient(cmap="Blues"))
     csv = linechart.to_csv(index= False).encode("utf-8")
     st.download_button("Download Data", data= csv, file_name= "TimeSeries.csv", mime= "text/csv", 
@@ -250,7 +250,7 @@ with chart2:
 import plotly.figure_factory as ff
 
 st.subheader(":point_right: Month Wise Sub-Category Sales Summery")
-with st.expander("Summery Table"):
+with st.expander("Summary Table"):
     df_sample = df[0:5][["Region", "State", "City", "Category", "Sales", "Profit", "Quantity"]]
     fig6 = ff.create_table(df_sample, colorscale= "Cividis")
     st.plotly_chart(fig6)
@@ -271,4 +271,5 @@ st.plotly_chart(data1)
 
 csv = df.to_csv(index = False).encode('utf-8')
 st.download_button('Download Data', data = csv, file_name= "Data.csv", mime= "text/csv")
+
 
