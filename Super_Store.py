@@ -36,7 +36,7 @@ if fl is not None:
     df = pd.read_csv(filename)
 else:
     # os.chdir(r"C:\Users\nages\OneDrive\Desktop\Python Basic")
-    df = pd.read_excel("Sample_Superstore.xls")
+    df = pd.read_excel("Sample_Superstore.xlsx")
 
 
 col1, col2 = st.columns((2))
@@ -281,5 +281,6 @@ st.plotly_chart(data1)
 
 csv = df.to_csv(index = False).encode('utf-8')
 st.download_button('Download Data', data = csv, file_name= "Data.csv", mime= "text/csv")
+
 
 
