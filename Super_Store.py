@@ -1,5 +1,6 @@
 import pandas as pd
 import streamlit as st
+import plotly
 import plotly.express as px
 import os
 import warnings
@@ -280,3 +281,4 @@ st.plotly_chart(data1)
 
 csv = df.to_csv(index = False).encode('utf-8')
 st.download_button('Download Data', data = csv, file_name= "Data.csv", mime= "text/csv")
+
